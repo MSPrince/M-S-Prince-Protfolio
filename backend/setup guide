@@ -1,0 +1,1 @@
+npm install express express-fileupload bcrypt cookie-parser nodemailer cors dotenv cloudinary jsonwebtoken mongoose

@@ -6,22 +6,14 @@ import fileUpload from "express-fileupload";
 import { dbConnection } from "./database/dbConnection.js";
 import { errorMiddleware } from "./middlewares/error.js";
 import messageRouter from "./routes/messageRouter.js";
-
-
-
-
-
-
-
-
-
-
-
+import userRouter from "./routes/userRouter.js";
+import softwareApplicationRouter from "./routes/softwareApplicationRouter.js";
+import timelineRouter from "./routes/timelineRouter.js";
+import skillRouter from "./routes/skillRouter.js";
+import projectRouter from "./routes/projectRouter.js";
 
 const app = express();
 dotenv.config({ path: "./config/config.env" });
-// console.log(process.env.PORT);
-
 
 app.use(
   cors({
@@ -42,10 +34,12 @@ app.use(
   })
 );
 
-
+app.use("/api/v1/user", userRouter);
+app.use("/api/v1/timeline", timelineRouter);
 app.use("/api/v1/message", messageRouter);
-
-
+app.use("/api/v1/skill", skillRouter);
+app.use("/api/v1/softwareapplication", softwareApplicationRouter);
+app.use("/api/v1/project", projectRouter);
 
 dbConnection();
 app.use(errorMiddleware);

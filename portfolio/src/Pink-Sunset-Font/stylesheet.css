@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Pink Sunset';
+    src: url('PinkSunset-Regular.eot');
+    src: local('Pink Sunset Regular'), local('PinkSunset-Regular'),
+        url('PinkSunset-Regular.eot?#iefix') format('embedded-opentype'),
+        url('PinkSunset-Regular.woff2') format('woff2'),
+        url('PinkSunset-Regular.woff') format('woff'),
+        url('PinkSunset-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pink Sunset';
+    src: url('PinkSunset-Italic.eot');
+    src: local('Pink Sunset Italic'), local('PinkSunset-Italic'),
+        url('PinkSunset-Italic.eot?#iefix') format('embedded-opentype'),
+        url('PinkSunset-Italic.woff2') format('woff2'),
+        url('PinkSunset-Italic.woff') format('woff'),
+        url('PinkSunset-Italic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+

@@ -6,7 +6,9 @@ import { login, clearAllUserErrors } from "@/store/slices/userSlice";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
+import SpecialLoadingButton from "./sub-components/SpecialLoadingButton";
+import loginn from "../../public/login.png";
 
 const Login = ()=> {
   const [email, setEmail] = useState("");
@@ -44,7 +46,8 @@ const Login = ()=> {
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
               <Input
-                id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 placeholder="m@example.com"
                 required
@@ -54,18 +57,27 @@ const Login = ()=> {
               <div className="flex items-center">
                 <Label htmlFor="password">Password</Label>
                 <Link
-                  href="/forgot-password"
+                  to="/password/forgot"
                   className="ml-auto inline-block text-sm underline"
                 >
                   Forgot your password?
                 </Link>
               </div>
-              <Input id="password" type="password" required />
+              <Input
+                type="password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
-            <Button type="submit" className="w-full" onClick={handleLogin}>
-              Login
-            </Button>
-            
+
+            {loading ? (
+              <SpecialLoadingButton content={"Loging In"} />
+            ) : (
+              <Button type="submit" className="w-full" onClick={handleLogin}>
+                Login
+              </Button>
+            )}
           </div>
           <div className="mt-4 text-center text-sm">
             Don&apos;t have an account?{" "}
@@ -75,11 +87,11 @@ const Login = ()=> {
           </div>
         </div>
       </div>
-      <div className="hidden bg-muted lg:block">
+      <div className="hidden bg-muted lg:block min-h-[100vh]">
         <img
-          src="/placeholder.svg"
+          src={loginn}
           alt="Image"
-          className="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+          className=" h-[100vh] w-[100vw] object-fill dark:brightness-[0.2] dark:grayscale"
         />
       </div>
     </div>
